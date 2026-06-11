@@ -4,7 +4,17 @@
     <meta charset="UTF-8">
     <title>2026 컴플라이언스 월드컵</title>
     <style>
-        body { background-color: #1a1a1a; color: #fff; font-family: 'Malgun Gothic', sans-serif; text-align: center; margin: 0; padding: 20px; overflow: hidden; }
+        /* 폰트를 요즘 가장 트렌디하고 세련된 프리텐다드 / 시스템 산세리프 스타일로 전면 교체 */
+        body { 
+            background-color: #1a1a1a; 
+            color: #fff; 
+            font-family: -apple-system, BlinkMacSystemFont, "Pretendard Variable", Pretendard, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+            text-align: center; 
+            margin: 0; 
+            padding: 20px; 
+            overflow: hidden; 
+            letter-spacing: -0.3px;
+        }
         #game-container { max-width: 1020px; margin: 0 auto; background-color: #2c3e50; padding: 20px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.7); border: 3px solid #34495e; position: relative; }
         
         /* 상단 상태바 */
@@ -49,8 +59,8 @@
             display: flex; justify-content: center; align-items: center;
         }
         #scoreboard-title {
-            font-family: 'Courier New', monospace; font-size: 18px; font-weight: 900;
-            color: #f1c40f; letter-spacing: 2px; text-shadow: 0 0 8px #f39c12;
+            font-family: 'Segoe UI', -apple-system, sans-serif; font-size: 17px; font-weight: 900;
+            color: #f1c40f; letter-spacing: 1px; text-shadow: 0 0 8px #f39c12;
         }
 
         /* 축구장 라인 마킹 */
@@ -92,7 +102,7 @@
             box-shadow: 4px 4px 15px rgba(0,0,0,0.4); z-index: 10; display: flex; align-items: center;
             border-left: 8px solid #2e8b57; border: 2px solid #333; box-sizing: border-box;
         }
-        #question { font-size: 16px; font-weight: bold; line-height: 1.45; text-align: left; word-break: keep-all; margin: 0; }
+        #question { font-size: 15px; font-weight: bold; line-height: 1.5; text-align: left; word-break: keep-all; margin: 0; }
 
         /* 보기 컨테이너 */
         #options-container { 
@@ -111,7 +121,7 @@
         
         .btn-option { 
             background: #ecf0f1; border: none; padding: 0 15px; height: 50px; 
-            font-size: 16px; font-weight: bold; border-radius: 10px; cursor: pointer; transition: 0.3s; 
+            font-size: 15px; font-weight: bold; border-radius: 10px; cursor: pointer; transition: 0.3s; 
             text-align: left; color: #2c3e50; border-bottom: 4px solid #bdc3c7;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1); box-sizing: border-box;
             display: flex; align-items: center; line-height: 1.2;
@@ -170,7 +180,6 @@
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
             background: rgba(255, 255, 255, 0.9); z-index: 15; opacity: 0; pointer-events: none; display: none; 
         }
-        /* 수정 포인트 2-1: 플래시 애니메이션 반복 횟수를 5에서 7로 변경 */
         .flash-animation { display: block !important; animation: camera-flash 0.5s 7; }
         @keyframes camera-flash { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
 
@@ -212,27 +221,27 @@
 
 <div id="game-container">
     <div id="intro-screen">
-        <h2 class="intro-title">🏆 월드컵 안내문</h2>
+        <h2 class="intro-title">🏆 월드컵 참가방법</h2>
         <p class="intro-desc">
             삼성물산 임직원 선수 여러분 환영합니다!<br>
             여러분은 회사 대표로 이번 대회에 참가하게 되었습니다.<br>
             우승을 차지하기 위해서는 골키퍼를 피해 정확한 위치로 슛을 쏴야 합니다.<br>
-            퀴즈 정답에 대한 올바른 방향을 선정하여 슛을 쏘세요~ 그리고 우승에 도전하세요~<br>
-            이번 승부차기 게임을 통해 월드컵 속에 숨어있는 컴플라이언스 요소를 <br>쉽고 재미있게 학습할 수 있기를 바랍니다.
+            퀴즈의 정답을 찾아 올바른 방향으로 슛을 쏘세요! 그리고 우승에 도전하세요!!<br>
+            이번 월드컵 게임을 통해 컴플라이언스를 쉽고 재미있게 학습해보세요.
         </p>
         <div class="intro-features">
             <div class="feature-card">🤝 문제에 대한 정답 선택</div>
-            <div class="feature-card">🛑 15초 안에 슛 쏘기</div>
+            <div class="feature-card">🛑 20초 안에 슛 쏘기</div>
             <div class="feature-card">🔥 골 성공하기</div>
         </div>
-        <p style="font-size: 12px; color: #ffeb3b; margin-top: 0; font-weight: bold;">※ 제한시간 15초 이내에 올바른 컴플라이언스 보기를 선택하세요!</p>
+        <p style="font-size: 12px; color: #ffeb3b; margin-top: 0; font-weight: bold;">※ 제한시간 20초 이내에 올바른 컴플라이언스 보기를 선택하세요!</p>
         <button class="btn-start" onclick="startGameNow()">⚽ 경기에 참여하기</button>
     </div>
 
     <div id="status-bar">
-        <span id="round-title" style="color: #3498db;">준비 중...</span>
+        <span id="round-title" style="color: #ff4d4d; font-weight: bold;">준비 중...</span>
         <span id="score-display">SCORE: <span id="score">0</span></span>
-        <span id="timer">00:15</span>
+        <span id="timer">00:20</span>
     </div>
     
     <div id="main-stage">
@@ -278,6 +287,7 @@
                     <rect x="20" y="24" width="24" height="22" fill="#f1c40f" rx="4"/>
                     <circle cx="32" cy="14" r="10" fill="#ffdbac"/>
                     <rect x="12" y="24" width="8" height="15" fill="#ffdbac" rx="2"/>
+                    <rect x="44" y="24" width="8" height="15" fill="#ffdbac" rx="2"/>
                     <rect x="24" y="46" width="7" height="10" fill="#34495e" id="k-leg"/>
                     <rect x="33" y="46" width="7" height="10" fill="#34495e"/>
                 </svg>
@@ -298,42 +308,41 @@
             q: "26년 월드컵부터 적용되는 \"Hydration Break\"는\n전∙후반 약 22분이 지난 시점에 3분간 휴식시간을 부여해 선수들이 물을 마시고 휴식을 취할 시간을 주는 것으로, 이는 컴플라이언스의 어떤 항목과 가장 연관되어 있을까요?", 
             options: ["품질확보", "공정거래", "정보보호", "안전사고근절"], 
             answer: 4,
-            commentary: "무더운 날씨에 선수들의 건강보호를 위한 규칙으로, <br>이는 임직원과 근로자를 위해 안전한 근로환경을<br> 조성하는 것과 연관되어 있습니다."
+            commentary: "무더운 날씨에 선수들의 건강보호를 위한 규정으로, <br>임직원과 근로자의 안전한 근로환경 조성과 관련 있습니다."
         },
         { 
             round: "16강전", 
             q: "축구 생태계를 파괴하는 '승부조작 및 불법 베팅 금지'는 기업의 어떤 윤리 가치와 일치할까요?", 
             options: ["부패방지", "비용절감", "직장 내 괴롭힘", "개인정보 보호"], 
             answer: 1,
-            commentary: "승부조작과 불법베팅은 부패와 마찬가지로 뇌물과 이해충돌, 그리고 음성적 거래로 이루어집니다."
+            commentary: "승부조작과 불법 베팅은 뇌물, 부정청탁과 같은<br> 부정부패와 유사합니다."
         },
         { 
             round: "8강전", 
-            q: "이번 월드컵부터 경기중 입을 가리고 상대와 대치하는 선수는 인종차별행위로 인식되어 곧바로 레드카드를 받게 됩니다. 지난 경기에서 입을 가린채 상대방 선수에게 \"원숭이\"라는 인종차별 발언을 한 의혹이 계기인데요. 이러한 새로운 경기규칙은 컴플라이언스의 어떤 문화 조성과 연결될까요?", 
+            q: "이번 월드컵부터 경기중 입을 가리고 상대와 대치하는 것은 인종차별 행위로 보고 곧바로 레드카드를 받게 됩니다. 입을 가린 채  \"원숭이\"라는 인종차별 발언을 한 의혹이 계기인데요. 이러한 경기규칙은 어떤 컴플라이언스 항목과 연결될까요?", 
             options: ["근로시간 준수", "다양성 존중 및 차별 금지", "영업비밀 보호", "환경보호"], 
             answer: 2,
-            commentary: "선수에게 눈찢기와 원숭이라고 부르며 바나나를 던지는 등의 행위는 아직도 남아있는 인종차별 입니다.  이는 인간존중인<br> 최우선 가치에 맞게 사라져야 할 모습입니다."
+            commentary: "인종차별 행위는 다양성 존중과 차별금지와 같은<br> 인간존중 가치에 반하는 행위입니다."
         },
         { 
             round: "4강전", 
-            q: "월드컵에서 가장 중요한 요소는 페어 플레이 입니다. 다음 중 기업의 공정거래시 페어 플레이와 관련이 가장 없는 것은?", 
+            q: "월드컵에서 가장 중요한 것은 페어플레이 입니다. 다음 중 기업의 공정거래 행위와 가장 관련이 없는 것은 무엇입니까?", 
             options: ["인재제일", "담합행위 금지", "부당표시∙광고 금지", "부당지원 금지"], 
             answer: 1,
-            commentary: "공정거래를 위해서는 담합, 부당지원, 부당표시∙광고, 그리고 자본시장 공정거래에 대한 관련 규정을 준수해야 합니다."
+            commentary: "페어플레이는 정정당당한 경쟁이라는 점에서<br> 공정거래와 관련 있습니다."
         },
         { 
             round: "결승전", 
-            q: "월드컵에서 도핑검사는 필수로, 경기 전∙후 무작위로 시행합니다. 선수들의 신체적 건강과 정신적 완전성을 보호하고, 공정한 경쟁을 위한 \"반도핑\" 규정은 기업 성과 관리에서 어떤 의미를 가질까요?", 
+            q: "월드컵에서 도핑검사는 경기 전∙후 필수로 시행됩니다. 선수들의 신체적, 정신적 건강을 보호하고, 공정한 경쟁을 하기 위한 \"반도핑\" 규정은, 기업 성과 관리와 관련하여 어떤 의미를 가질까요?", 
             options: ["무조건적인 1등 달성", "정당한 절차를 통한 성과", "결과 중심 주의", "예외적 규정 마련"], 
             answer: 2,
-            commentary: "스포츠에서 선수의 신체 능력을 부당하게 끌어올리는 도핑은, 기업 경영에서 단기적인 이익을 위해 불법적인 수단을<br> 동원하는 것과 유사합니다."
+            commentary: "선수의 신체능력을 약물의 힘으로 불법적으로 끌어올리는 행위는<br> 기업이 눈앞의 이익을 위해 불법적인 수단을 동원하는 것과 같습니다."
         }
     ];
 
-    // 수정 포인트 1-4: 타이머 기준 변수를 10에서 15로 변경
     let currentStage = 0;
     let score = 0;
-    let timeLeft = 15;
+    let timeLeft = 20;
     let timerInterval;
     let isShooting = false;
 
@@ -405,8 +414,7 @@
 
     function initGame() {
         prepareGameLayout();
-        // 수정 포인트 1-5: 라운드 리셋 시 타이머 리셋 값을 15초로 설정
-        timeLeft = 15;
+        timeLeft = 20;
         updateTimerDisplay();
         startTimer();
     }
@@ -455,7 +463,6 @@
                 const flashScreen = document.getElementById("flash-screen");
                 flashScreen.classList.add("flash-animation");
                 
-                // 수정 포인트 2-2: 플래시 제거 시간 수정 (0.5초씩 7번 수행하므로 2500ms -> 3500ms로 변경)
                 setTimeout(() => flashScreen.classList.remove("flash-animation"), 3500);
 
                 overlay.innerHTML = `
@@ -465,7 +472,6 @@
                 overlay.style.display = "block";
             }, 400);
 
-            // 수정 포인트 2-3: 길어진 플래시 타임(3.5초)에 맞추어 다음 문제 전환 딜레이를 4500ms -> 5500ms로 조율 (해설 읽을 시간 확보)
             setTimeout(() => { currentStage++; initGame(); }, 5500);
         } else {
             gk.style.top = (parseInt(gkVerticalTargets[pick]) - 25) + "px";
